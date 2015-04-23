@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_AgentsModelStoreContainer" CdmEntityContainer="db_AgentsEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="db_AgentsModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InternalUsers">
+      <EntityTypeMapping TypeName="db_AgentsModel.InternalUser">
+        <MappingFragment StoreEntitySet="InternalUser">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="db_AgentsModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDiscription" ColumnName="ProductDiscription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Businesses">
+      <EntityTypeMapping TypeName="db_AgentsModel.Business">
+        <MappingFragment StoreEntitySet="Business">
+          <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+          <ScalarProperty Name="Emaill" ColumnName="Emaill" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="db_AgentsModel.Agent">
+        <MappingFragment StoreEntitySet="Agent">
+          <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+          <ScalarProperty Name="Bussiness" ColumnName="Bussiness" />
+          <ScalarProperty Name="ShopAccount3" ColumnName="ShopAccount3" />
+          <ScalarProperty Name="ShopLink3" ColumnName="ShopLink3" />
+          <ScalarProperty Name="ShopAccount2" ColumnName="ShopAccount2" />
+          <ScalarProperty Name="ShopLink2" ColumnName="ShopLink2" />
+          <ScalarProperty Name="ShopAccount1" ColumnName="ShopAccount1" />
+          <ScalarProperty Name="ShopLink1" ColumnName="ShopLink1" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="AuthorizeBooEndDate" ColumnName="AuthorizeBooEndDate" />
+          <ScalarProperty Name="AuthorizeBooStartDate" ColumnName="AuthorizeBooStartDate" />
+          <ScalarProperty Name="AuthorizeBookNo" ColumnName="AuthorizeBookNo" />
+          <ScalarProperty Name="Emaill" ColumnName="Emaill" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Tell" ColumnName="Tell" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="AgentLevel" ColumnName="AgentLevel" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="PrevWeixin" ColumnName="PrevWeixin" />
+          <ScalarProperty Name="Weixin" ColumnName="Weixin" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerifyLogs">
+      <EntityTypeMapping TypeName="db_AgentsModel.VerifyLog">
+        <MappingFragment StoreEntitySet="VerifyLog">
+          <ScalarProperty Name="Weixin" ColumnName="Weixin" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="VerifyMessage" ColumnName="VerifyMessage" />
+          <ScalarProperty Name="VerifyTime" ColumnName="VerifyTime" />
+          <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

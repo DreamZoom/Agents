@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e78b2150dfe4b6998f40532d508949e" Name="Diagram1">
+        <EntityTypeShape EntityType="db_AgentsModel.Admin" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AgentsModel.InternalUser" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AgentsModel.Product" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AgentsModel.Business" Width="1.5" PointX="7.375" PointY="0.875" />
+        <EntityTypeShape EntityType="db_AgentsModel.Agent" Width="1.5" PointX="3.875" PointY="1.75" />
+        <EntityTypeShape EntityType="db_AgentsModel.VerifyLog" Width="1.5" PointX="7.375" PointY="3.125" />
+        <AssociationConnector Association="db_AgentsModel.FK_Agent_Business" />
+        <AssociationConnector Association="db_AgentsModel.FK_Agent_Product" />
+        <AssociationConnector Association="db_AgentsModel.FK_VerifyLog_Agent" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

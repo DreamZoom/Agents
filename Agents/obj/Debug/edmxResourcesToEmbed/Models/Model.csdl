@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_AgentsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminName" />
+    </Key>
+    <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="InternalUser">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductName" />
+    </Key>
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductDiscription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Agents" Relationship="db_AgentsModel.FK_Agent_Product" FromRole="Product" ToRole="Agent" />
+  </EntityType>
+  <EntityContainer Name="db_AgentsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="InternalUsers" EntityType="Self.InternalUser" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Businesses" EntityType="db_AgentsModel.Business" />
+    <EntitySet Name="Agents" EntityType="db_AgentsModel.Agent" />
+    <EntitySet Name="VerifyLogs" EntityType="db_AgentsModel.VerifyLog" />
+    <AssociationSet Name="FK_Agent_Business" Association="db_AgentsModel.FK_Agent_Business">
+      <End Role="Business" EntitySet="Businesses" />
+      <End Role="Agent" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_Product" Association="db_AgentsModel.FK_Agent_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Agent" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VerifyLog_Agent" Association="db_AgentsModel.FK_VerifyLog_Agent">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="VerifyLog" EntitySet="VerifyLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Business">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emaill" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Agents" Relationship="db_AgentsModel.FK_Agent_Business" FromRole="Business" ToRole="Agent" />
+  </EntityType>
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Weixin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrevWeixin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgentLevel" Type="Int32" Nullable="false" />
+    <Property Name="IDCard" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tell" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Emaill" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizeBookNo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizeBooStartDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthorizeBooEndDate" Type="DateTime" Precision="3" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="ShopLink1" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShopAccount1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShopLink2" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShopAccount2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShopLink3" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ShopAccount3" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bussiness" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Business" Relationship="db_AgentsModel.FK_Agent_Business" FromRole="Agent" ToRole="Business" />
+    <NavigationProperty Name="Product" Relationship="db_AgentsModel.FK_Agent_Product" FromRole="Agent" ToRole="Product" />
+    <NavigationProperty Name="VerifyLogs" Relationship="db_AgentsModel.FK_VerifyLog_Agent" FromRole="Agent" ToRole="VerifyLog" />
+    <Property Name="RequestType" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VerifyLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentID" Type="Int32" Nullable="false" />
+    <Property Name="VerifyTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VerifyMessage" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Weixin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Agent" Relationship="db_AgentsModel.FK_VerifyLog_Agent" FromRole="VerifyLog" ToRole="Agent" />
+  </EntityType>
+  <Association Name="FK_Agent_Business">
+    <End Type="db_AgentsModel.Business" Role="Business" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="db_AgentsModel.Agent" Role="Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Business">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Agent">
+        <PropertyRef Name="Bussiness" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_Product">
+    <End Type="db_AgentsModel.Product" Role="Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="db_AgentsModel.Agent" Role="Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductName" />
+      </Principal>
+      <Dependent Role="Agent">
+        <PropertyRef Name="ProductName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VerifyLog_Agent">
+    <End Type="db_AgentsModel.Agent" Role="Agent" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="db_AgentsModel.VerifyLog" Role="VerifyLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VerifyLog">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
